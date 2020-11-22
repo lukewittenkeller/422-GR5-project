@@ -129,7 +129,7 @@
         app:layout_constraintVertical_bias="0.358" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBox4"
         android:layout_width="155dp"
         android:layout_height="40dp"
         android:text="Wednesday"
@@ -169,7 +169,7 @@
         app:layout_constraintVertical_bias="0.975" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/am"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="AM"
@@ -183,7 +183,7 @@
         app:layout_constraintVertical_bias="0.587" />
 
     <CheckBox
-        android:id="@+id/checkBox8"
+        android:id="@+id/pm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PM"
