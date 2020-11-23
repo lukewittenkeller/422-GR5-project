@@ -12,11 +12,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TimePicker;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity
 {
-    ImageView plusBtn;
+   // ImageView plusBtn;
+    FloatingActionButton plusBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
 
-        plusBtn = (ImageView) findViewById(R.id.plusButton);
+        plusBtn = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)

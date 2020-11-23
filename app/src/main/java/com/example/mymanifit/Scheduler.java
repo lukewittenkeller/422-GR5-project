@@ -201,7 +201,7 @@ public class Scheduler extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(Scheduler.this, MainActivity.class);
+                Intent i = new Intent(Scheduler.this, Timer.class);
                 startActivity(i);
             }
         });
