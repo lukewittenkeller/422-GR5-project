@@ -35,7 +35,7 @@ public class Timer extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent i = new Intent(Timer.this, WorkoutInfo.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT| Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 timer.cancel();
                 startActivity(i);
             //    finish();
