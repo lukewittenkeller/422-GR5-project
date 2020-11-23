@@ -1,18 +1,21 @@
 package com.example.mymanifit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Locale;
 
-public class Timer extends AppCompatActivity
-{
+public class Workout extends AppCompatActivity {
     TextView timerText;
+    TextView workoutText;
     CountDownTimer timer;
     boolean timerRunning;
     long timeLeft;
@@ -22,13 +25,17 @@ public class Timer extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timer);
+        setContentView(R.layout.activity_workout);
 
-        timeLeft = 10000;
-
+        timeLeft = 30000;
+        workoutText = (TextView) findViewById(R.id.textViewWorkout);
         timerText = (TextView) findViewById(R.id.countdown);
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        ObjectAnimator animation = ObjectAnimator.ofInt(progressBar, "progress", 0, 100); // see this max value coming back here, we animate towards that value
+        animation.setDuration(30000); // in milliseconds
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
         startTimer();
-
     }
 
     private void startTimer()
@@ -44,9 +51,7 @@ public class Timer extends AppCompatActivity
             @Override
             public void onFinish()
             {
-                Toast.makeText(Timer.this, "Begin workout!", Toast.LENGTH_LONG).show();
-                Intent i = new Intent(Timer.this, Workout.class);
-                startActivity(i);
+                workoutText.setText("Rest");
             }
         }.start();
         timerRunning = true;
