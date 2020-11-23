@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,11 +15,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,6 +30,7 @@ public class Scheduler extends AppCompatActivity {
 
     CheckBox mon, tues, wed, thurs, fri, sat, sun;
     Button next, back;
+    Boolean monSelected,tuesSelected,wedSelected,thursSelected,friSelected, satSelected, sunSelected = false;
 
     Button backBtn, nextBtn;
 
@@ -203,9 +207,15 @@ public class Scheduler extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String s = "Enter Time";
+                if(!sunText.getText().equals(s) || !sunText.getText().equals("")) {
+                    Intent i = new Intent(Scheduler.this, Timer.class);
+                    startActivity(i);
+                }
+                else{
 
-                Intent i = new Intent(Scheduler.this, Timer.class);
-                startActivity(i);
+                    Toast.makeText(Scheduler.this, "Please select at least one workout day!", Toast.LENGTH_LONG).show();
+                }
             }
         });
         next = (Button) findViewById(R.id.nextButton);
@@ -217,6 +227,139 @@ public class Scheduler extends AppCompatActivity {
         thurs = (CheckBox) findViewById(R.id.checkBox5);
         fri = (CheckBox) findViewById(R.id.checkBox6);
         sat = (CheckBox) findViewById(R.id.checkBox7);
+
+
+        sat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                satSelected = b;
+                if(b == true) {
+                    satText.setBackgroundColor(Color.WHITE);
+                    satText.setText("Enter Time");
+                    satText.setEnabled(true);
+                }
+                else{
+
+                    satText.setBackgroundColor(Color.TRANSPARENT);
+                    satText.setText("");
+                    satText.setEnabled(false);
+                }
+            }
+        });
+
+
+        sun.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                sunSelected = b;
+                if(b == true) {
+                    sunText.setBackgroundColor(Color.WHITE);
+                    sunText.setText("Enter Time");
+                    sunText.setEnabled(true);
+                }
+                else{
+
+                    sunText.setBackgroundColor(Color.TRANSPARENT);
+                    sunText.setText("");
+                    sunText.setEnabled(false);
+                }
+            }
+        });
+
+
+        mon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                monSelected = b;
+                if(b == true) {
+                    monText.setBackgroundColor(Color.WHITE);
+                    monText.setText("Enter Time");
+                    monText.setEnabled(true);
+                }
+                else{
+
+                    monText.setBackgroundColor(Color.TRANSPARENT);
+                    monText.setText("");
+                    monText.setEnabled(false);
+                }
+            }
+        });
+
+
+
+        tues.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                tuesSelected = b;
+                if(b == true) {
+                    tuesText.setBackgroundColor(Color.WHITE);
+                    tuesText.setText("Enter Time");
+                    tuesText.setEnabled(true);
+                }
+                else{
+
+                    tuesText.setBackgroundColor(Color.TRANSPARENT);
+                    tuesText.setText("");
+                    tuesText.setEnabled(false);
+                }
+            }
+        });
+
+        wed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                wedSelected = b;
+                if(b == true) {
+                    wedText.setBackgroundColor(Color.WHITE);
+                    wedText.setText("Enter Time");
+                    wedText.setEnabled(true);
+                }
+                else{
+
+                    wedText.setBackgroundColor(Color.TRANSPARENT);
+                    wedText.setText("");
+                    wedText.setEnabled(false);
+                }
+            }
+        });
+
+
+        thurs.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                thursSelected = b;
+                if(b == true) {
+                    thursText.setBackgroundColor(Color.WHITE);
+                    thursText.setText("Enter Time");
+                    thursText.setEnabled(true);
+                }
+                else{
+
+                    thursText.setBackgroundColor(Color.TRANSPARENT);
+                    thursText.setText("");
+                    thursText.setEnabled(false);
+                }
+            }
+        });
+
+
+        fri.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                friSelected = b;
+                if(b == true) {
+                    friText.setBackgroundColor(Color.WHITE);
+                    friText.setText("Enter Time");
+                    friText.setEnabled(true);
+                }
+                else{
+
+                    friText.setBackgroundColor(Color.TRANSPARENT);
+                    friText.setText("");
+                    friText.setEnabled(false);
+                }
+            }
+        });
     }
 
     public String singleDigit(int i)
