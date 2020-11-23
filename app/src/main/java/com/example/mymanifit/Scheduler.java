@@ -59,7 +59,7 @@ public class Scheduler extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(Scheduler.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        monText.setText(i + ":" + i1);
+                        monText.setText(singleDigit(i) + ":" + singleDigit(i1));
                     }
                 }, monHour, monMin, true);
                 timePickerDialog.show();
@@ -80,7 +80,7 @@ public class Scheduler extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(Scheduler.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        tuesText.setText(i + ":" + i1);
+                        tuesText.setText(singleDigit(i) + ":" + singleDigit(i1));
                     }
                 }, tuesHour, tuesMin, true);
                 timePickerDialog.show();
@@ -101,7 +101,7 @@ public class Scheduler extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(Scheduler.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        wedText.setText(i + ":" + i1);
+                        wedText.setText(singleDigit(i) + ":" + singleDigit(i1));
                     }
                 }, wedHour, wedMin, true);
                 timePickerDialog.show();
@@ -121,7 +121,7 @@ public class Scheduler extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(Scheduler.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        thursText.setText(i + ":" + i1);
+                        thursText.setText(singleDigit(i) + ":" + singleDigit(i1));
                     }
                 }, thursHour, thursMin, true);
                 timePickerDialog.show();
@@ -141,7 +141,7 @@ public class Scheduler extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(Scheduler.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        friText.setText(i + ":" + i1);
+                        friText.setText(singleDigit(i) + ":" + singleDigit(i1));
                     }
                 }, friHour, friMin, true);
                 timePickerDialog.show();
@@ -161,7 +161,7 @@ public class Scheduler extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(Scheduler.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        satText.setText(i + ":" + i1);
+                        satText.setText(singleDigit(i) + ":" + singleDigit(i1));
                     }
                 }, satHour, satMin, true);
                 timePickerDialog.show();
@@ -180,8 +180,9 @@ public class Scheduler extends AppCompatActivity {
 
                 TimePickerDialog timePickerDialog = new TimePickerDialog(Scheduler.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
-                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        sunText.setText(i + ":" + i1);
+                    public void onTimeSet(TimePicker timePicker, int i, int i1)
+                    {
+                        sunText.setText(singleDigit(i) + ":" + singleDigit(i1));
                     }
                 }, sunHour, sunMin, true);
                 timePickerDialog.show();
@@ -217,10 +218,17 @@ public class Scheduler extends AppCompatActivity {
         thurs = (CheckBox) findViewById(R.id.checkBox5);
         fri = (CheckBox) findViewById(R.id.checkBox6);
         sat = (CheckBox) findViewById(R.id.checkBox7);
-
-
-
-
     }
+
+    public String singleDigit(int i)
+    {
+        String s = Integer.toString(i);
+        if(s.length() == 1)
+        {
+            s = "0" + s;
+        }
+        return s;
+    }
+
 
 }
