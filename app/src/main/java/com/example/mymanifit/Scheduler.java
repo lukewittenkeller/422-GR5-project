@@ -38,7 +38,6 @@ public class Scheduler extends AppCompatActivity {
     TextView satText;
     TextView sunText;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

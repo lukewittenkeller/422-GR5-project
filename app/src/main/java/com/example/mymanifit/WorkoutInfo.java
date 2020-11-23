@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,6 +53,7 @@ public class WorkoutInfo extends AppCompatActivity {
                 }
             }
         });
+
         b2.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -75,6 +77,7 @@ public class WorkoutInfo extends AppCompatActivity {
                 }
             }
         });
+
         b3.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -110,7 +113,6 @@ public class WorkoutInfo extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 //grab workout length and type
                 if(isStrength || isFit || isHuge)
                 {

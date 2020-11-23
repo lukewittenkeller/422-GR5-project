@@ -54,15 +54,16 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select your workout type by clicking a button below"
+        android:text="Select your workout type by clicking a button below. Long click for workout details."
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="12pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.355" />
+        app:layout_constraintVertical_bias="0.386" />
 
     <Button
         android:id="@+id/button1"
@@ -71,12 +72,13 @@
         android:background="@android:color/white"
         android:text="Get Strong"
         android:textSize="12pt"
+        android:tooltipText="3x10 Bench press, 3x10 Bicep curls, 3x10 Shoulder press"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.539" />
+        app:layout_constraintVertical_bias="0.573" />
 
     <Button
         android:id="@+id/button2"
@@ -85,12 +87,13 @@
         android:background="@android:color/white"
         android:text="Get Fit"
         android:textSize="12pt"
+        android:tooltipText="3x10 Push-ups, 3x10 Sit-ups, 3x10 Burpees"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.539" />
+        app:layout_constraintVertical_bias="0.573" />
 
     <Button
         android:id="@+id/button3"
@@ -99,12 +102,13 @@
         android:background="@android:color/white"
         android:text="Get Huge"
         android:textSize="12pt"
+        android:tooltipText="3x10 Bench press, 3x10 Squat, 3x10 Dead-lift"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717" />
+        app:layout_constraintVertical_bias="0.756" />
 
     <Button
         android:id="@+id/backButton"
