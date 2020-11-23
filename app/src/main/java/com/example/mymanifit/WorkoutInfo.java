@@ -36,15 +36,7 @@ public class WorkoutInfo extends AppCompatActivity {
         nextBtn = (Button) findViewById(R.id.nextButton);
         durationField = (EditText) findViewById(R.id.editText);
 
-        if(savedInstanceState != null){
 
-            isStrength = savedInstanceState.getBoolean("Strong");
-            isFit = savedInstanceState.getBoolean("Fit");
-            isHuge = savedInstanceState.getBoolean("Huge");
-            s = savedInstanceState.getString("workoutLength");
-            durationField.setText(s);
-            Log.i("testa", s);
-        }
 
         b1.setOnClickListener(new View.OnClickListener()
         {
@@ -171,23 +163,5 @@ public class WorkoutInfo extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString("workoutLength",s );
-        outState.putBoolean("Strong", isStrength);
-        outState.putBoolean("Fit", isFit);
-        outState.putBoolean("Huge", isHuge);
-    }
 
-//
-//    @Override
-//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        isStrength = savedInstanceState.getBoolean("Strong");
-//        isFit = savedInstanceState.getBoolean("Fit");
-//        isHuge = savedInstanceState.getBoolean("Huge");
-//        s = savedInstanceState.getString("workoutLength");
-//        durationField.setText(s);
-//    }
 }
