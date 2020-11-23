@@ -18,10 +18,12 @@ import java.util.Locale;
 public class Workout extends AppCompatActivity {
     TextView timerText;
     TextView workoutText;
-    Button editBtn, viewBtn;
+    Button homeBtn;
     CountDownTimer timer;
+    ObjectAnimator animation;
     boolean timerRunning;
     long timeLeft;
+    int counter = 0;
 
 
     @Override
@@ -29,37 +31,19 @@ public class Workout extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
-
         timeLeft = 30000;
         workoutText = (TextView) findViewById(R.id.textViewWorkout);
         timerText = (TextView) findViewById(R.id.countdown);
-        editBtn = (Button) findViewById(R.id.editBtn);
-        viewBtn = (Button) findViewById(R.id.viewBtn);
-
-        editBtn.setOnClickListener(new View.OnClickListener() {
+        homeBtn = (Button) findViewById(R.id.homeBtn);
+        homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                Intent i = new Intent(Workout.this, WorkoutInfo.class);
+            public void onClick(View view) {
+                Intent i = new Intent(Workout.this, MainActivity.class);
                 startActivity(i);
             }
         });
-
-        viewBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Intent i = new Intent(Workout.this, Scheduler.class);
-                startActivity(i);
-            }
-        });
-
-
-
-
-
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        ObjectAnimator animation = ObjectAnimator.ofInt(progressBar, "progress", 100, 0); // see this max value coming back here, we animate towards that value
+        animation = ObjectAnimator.ofInt(progressBar, "progress", 100, 0); // see this max value coming back here, we animate towards that value
         animation.setDuration(30000); // in milliseconds
         animation.setInterpolator(new DecelerateInterpolator());
         animation.start();
@@ -79,7 +63,39 @@ public class Workout extends AppCompatActivity {
             @Override
             public void onFinish()
             {
-                workoutText.setText("Rest");
+                if(counter == 0)
+                {
+                    workoutText.setText("Rest");
+                    counter = 1;
+                    timeLeft = 10000;
+                    animation.setDuration(timeLeft);
+                    animation.start();
+                    startTimer();
+                }
+                else if(counter == 1)
+                {
+                    workoutText.setText("Bench press");
+                    counter = 2;
+                    timeLeft = 10000;
+                    animation.setDuration(timeLeft);
+                    animation.start();
+                    startTimer();
+                }
+                else if(counter == 2)
+                {
+                    workoutText.setText("Rest");
+                    counter = 3;
+                    timeLeft = 5000;
+                    animation.setDuration(timeLeft);
+                    animation.start();
+                    startTimer();
+                }
+                else if(counter == 3)
+                {
+                    workoutText.setText("Workout complete");
+                    counter = 0;
+                    homeBtn.setEnabled(true);
+                }
             }
         }.start();
         timerRunning = true;

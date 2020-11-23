@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,6 +14,7 @@ import java.util.Locale;
 
 public class Timer extends AppCompatActivity
 {
+    Button editBtn, viewBtn;
     TextView timerText;
     CountDownTimer timer;
     boolean timerRunning;
@@ -24,8 +27,28 @@ public class Timer extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
-        timeLeft = 10000;
+        editBtn = (Button) findViewById(R.id.editBtn);
+        viewBtn = (Button) findViewById(R.id.viewBtn);
 
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent i = new Intent(Timer.this, WorkoutInfo.class);
+                startActivity(i);
+            }
+        });
+
+        viewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent i = new Intent(Timer.this, Scheduler.class);
+                startActivity(i);
+            }
+        });
+
+        timeLeft = 10000;
         timerText = (TextView) findViewById(R.id.countdown);
         startTimer();
 
