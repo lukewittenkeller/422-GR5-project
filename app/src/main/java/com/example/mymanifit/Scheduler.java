@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.AdapterView;
@@ -199,7 +200,7 @@ public class Scheduler extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Scheduler.this, MainActivity.class);
+                Intent i = new Intent(Scheduler.this, WorkoutInfo.class);
                 startActivity(i);
             }
         });
@@ -208,13 +209,15 @@ public class Scheduler extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String s = "Enter Time";
-                if(!sunText.getText().equals(s) || !sunText.getText().equals("")) {
+                if(!sunText.getText().toString().contains(s) || !monText.getText().toString().contains(s) || !tuesText.getText().toString().contains(s) ||
+                        !wedText.getText().toString().contains(s) || !thursText.getText().toString().contains(s) || !friText.getText().toString().contains(s) || !satText.getText().toString().contains(s)) {
                     Intent i = new Intent(Scheduler.this, Timer.class);
                     startActivity(i);
                 }
                 else{
-
-                    Toast.makeText(Scheduler.this, "Please select at least one workout day!", Toast.LENGTH_LONG).show();
+                    Toast toast = Toast.makeText(Scheduler.this, "Please select at least one workout day and a time!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.TOP, 0, 950);
+                    toast.show();
                 }
             }
         });
@@ -235,13 +238,13 @@ public class Scheduler extends AppCompatActivity {
                 satSelected = b;
                 if(b == true) {
                     satText.setBackgroundColor(Color.WHITE);
-                    satText.setText("Enter Time");
+                    satText.setTextColor(Color.BLACK);
                     satText.setEnabled(true);
                 }
                 else{
 
+                    satText.setTextColor(Color.TRANSPARENT);
                     satText.setBackgroundColor(Color.TRANSPARENT);
-                    satText.setText("");
                     satText.setEnabled(false);
                 }
             }
@@ -254,13 +257,12 @@ public class Scheduler extends AppCompatActivity {
                 sunSelected = b;
                 if(b == true) {
                     sunText.setBackgroundColor(Color.WHITE);
-                    sunText.setText("Enter Time");
+                    sunText.setTextColor(Color.BLACK);
                     sunText.setEnabled(true);
                 }
                 else{
-
+                    sunText.setTextColor(Color.TRANSPARENT);
                     sunText.setBackgroundColor(Color.TRANSPARENT);
-                    sunText.setText("");
                     sunText.setEnabled(false);
                 }
             }
@@ -273,13 +275,13 @@ public class Scheduler extends AppCompatActivity {
                 monSelected = b;
                 if(b == true) {
                     monText.setBackgroundColor(Color.WHITE);
-                    monText.setText("Enter Time");
+                    monText.setTextColor(Color.BLACK);
                     monText.setEnabled(true);
                 }
                 else{
 
                     monText.setBackgroundColor(Color.TRANSPARENT);
-                    monText.setText("");
+                    monText.setTextColor(Color.TRANSPARENT);
                     monText.setEnabled(false);
                 }
             }
@@ -293,13 +295,13 @@ public class Scheduler extends AppCompatActivity {
                 tuesSelected = b;
                 if(b == true) {
                     tuesText.setBackgroundColor(Color.WHITE);
-                    tuesText.setText("Enter Time");
+                    tuesText.setTextColor(Color.BLACK);
                     tuesText.setEnabled(true);
                 }
                 else{
 
                     tuesText.setBackgroundColor(Color.TRANSPARENT);
-                    tuesText.setText("");
+                    tuesText.setTextColor(Color.TRANSPARENT);
                     tuesText.setEnabled(false);
                 }
             }
@@ -311,13 +313,13 @@ public class Scheduler extends AppCompatActivity {
                 wedSelected = b;
                 if(b == true) {
                     wedText.setBackgroundColor(Color.WHITE);
-                    wedText.setText("Enter Time");
+                    wedText.setTextColor(Color.BLACK);
                     wedText.setEnabled(true);
                 }
                 else{
 
                     wedText.setBackgroundColor(Color.TRANSPARENT);
-                    wedText.setText("");
+                    wedText.setTextColor(Color.TRANSPARENT);
                     wedText.setEnabled(false);
                 }
             }
@@ -330,13 +332,13 @@ public class Scheduler extends AppCompatActivity {
                 thursSelected = b;
                 if(b == true) {
                     thursText.setBackgroundColor(Color.WHITE);
-                    thursText.setText("Enter Time");
+                    thursText.setTextColor(Color.BLACK);
                     thursText.setEnabled(true);
                 }
                 else{
 
                     thursText.setBackgroundColor(Color.TRANSPARENT);
-                    thursText.setText("");
+                    thursText.setTextColor(Color.TRANSPARENT);
                     thursText.setEnabled(false);
                 }
             }
@@ -349,13 +351,13 @@ public class Scheduler extends AppCompatActivity {
                 friSelected = b;
                 if(b == true) {
                     friText.setBackgroundColor(Color.WHITE);
-                    friText.setText("Enter Time");
+                    friText.setTextColor(Color.BLACK);
                     friText.setEnabled(true);
                 }
                 else{
 
                     friText.setBackgroundColor(Color.TRANSPARENT);
-                    friText.setText("");
+                    friText.setTextColor(Color.TRANSPARENT);
                     friText.setEnabled(false);
                 }
             }
