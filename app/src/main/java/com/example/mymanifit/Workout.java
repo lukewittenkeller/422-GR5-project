@@ -31,7 +31,7 @@ public class Workout extends AppCompatActivity {
         workoutText = (TextView) findViewById(R.id.textViewWorkout);
         timerText = (TextView) findViewById(R.id.countdown);
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        ObjectAnimator animation = ObjectAnimator.ofInt(progressBar, "progress", 0, 100); // see this max value coming back here, we animate towards that value
+        ObjectAnimator animation = ObjectAnimator.ofInt(progressBar, "progress", 100, 0); // see this max value coming back here, we animate towards that value
         animation.setDuration(30000); // in milliseconds
         animation.setInterpolator(new DecelerateInterpolator());
         animation.start();
