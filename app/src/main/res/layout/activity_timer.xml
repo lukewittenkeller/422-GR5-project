@@ -36,11 +36,11 @@
         app:layout_constraintVertical_bias="0.422" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/editBtn"
         android:layout_width="187dp"
         android:layout_height="100dp"
         android:text="Edit Workouts"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/viewBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.744" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/viewBtn"
         android:layout_width="187dp"
         android:layout_height="100dp"
         android:text="View Schedule"
