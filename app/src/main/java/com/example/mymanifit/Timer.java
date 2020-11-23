@@ -35,7 +35,10 @@ public class Timer extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent i = new Intent(Timer.this, WorkoutInfo.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                timer.cancel();
                 startActivity(i);
+            //    finish();
             }
         });
 
@@ -44,6 +47,10 @@ public class Timer extends AppCompatActivity
             public void onClick(View view)
             {
                 Intent i = new Intent(Timer.this, Scheduler.class);
+
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                timer.cancel();
+
                 startActivity(i);
             }
         });
@@ -73,6 +80,12 @@ public class Timer extends AppCompatActivity
             }
         }.start();
         timerRunning = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 
     private void updateTimer()

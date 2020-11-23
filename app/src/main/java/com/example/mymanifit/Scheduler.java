@@ -1,5 +1,6 @@
 package com.example.mymanifit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
@@ -8,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -48,6 +50,10 @@ public class Scheduler extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scheduler);
+
+        if(savedInstanceState != null){
+            Log.i("testa", savedInstanceState.getString("test"));
+        }
 
         Calendar calendar = Calendar.getInstance();
 
@@ -200,8 +206,10 @@ public class Scheduler extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Scheduler.this, WorkoutInfo.class);
-                startActivity(i);
+           //     Intent i = new Intent(Scheduler.this, WorkoutInfo.class);
+        //        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+         //       startActivity(i);
+                finish();
             }
         });
 
@@ -374,5 +382,10 @@ public class Scheduler extends AppCompatActivity {
         return s;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
 
+        outState.putString("test", "lol");
+    }
 }

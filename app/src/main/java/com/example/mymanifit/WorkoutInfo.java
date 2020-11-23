@@ -1,10 +1,13 @@
 package com.example.mymanifit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +20,9 @@ public class WorkoutInfo extends AppCompatActivity {
     EditText durationField;
 
     boolean isStrength, isFit, isHuge;
+
+    String s;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -29,6 +35,16 @@ public class WorkoutInfo extends AppCompatActivity {
         backBtn = (Button) findViewById(R.id.backButton);
         nextBtn = (Button) findViewById(R.id.nextButton);
         durationField = (EditText) findViewById(R.id.editText);
+
+        if(savedInstanceState != null){
+
+            isStrength = savedInstanceState.getBoolean("Strong");
+            isFit = savedInstanceState.getBoolean("Fit");
+            isHuge = savedInstanceState.getBoolean("Huge");
+            s = savedInstanceState.getString("workoutLength");
+            durationField.setText(s);
+            Log.i("testa", s);
+        }
 
         b1.setOnClickListener(new View.OnClickListener()
         {
@@ -106,7 +122,9 @@ public class WorkoutInfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(WorkoutInfo.this, MainActivity.class);
+
                 startActivity(i);
+           //     finish();
             }
         });
 
@@ -116,7 +134,7 @@ public class WorkoutInfo extends AppCompatActivity {
                 //grab workout length and type
                 if(isStrength || isFit || isHuge)
                 {
-                    String s = durationField.getText().toString();
+                    s = durationField.getText().toString();
                     if(s.equals(""))
                     {
                         Toast.makeText(WorkoutInfo.this, "Please enter your workout duration", Toast.LENGTH_LONG).show();
@@ -138,6 +156,8 @@ public class WorkoutInfo extends AppCompatActivity {
                         {
                             i.putExtra("type", "getHuge");
                         }
+
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         startActivity(i);
                     }
                 }
@@ -149,4 +169,25 @@ public class WorkoutInfo extends AppCompatActivity {
         });
 
     }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("workoutLength",s );
+        outState.putBoolean("Strong", isStrength);
+        outState.putBoolean("Fit", isFit);
+        outState.putBoolean("Huge", isHuge);
+    }
+
+//
+//    @Override
+//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//        isStrength = savedInstanceState.getBoolean("Strong");
+//        isFit = savedInstanceState.getBoolean("Fit");
+//        isHuge = savedInstanceState.getBoolean("Huge");
+//        s = savedInstanceState.getString("workoutLength");
+//        durationField.setText(s);
+//    }
 }
