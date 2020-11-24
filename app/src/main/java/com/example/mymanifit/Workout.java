@@ -31,7 +31,7 @@ public class Workout extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
-        timeLeft = 10000;
+        timeLeft = 20000;
         workoutText = (TextView) findViewById(R.id.textViewWorkout);
         timerText = (TextView) findViewById(R.id.countdown);
         homeBtn = (Button) findViewById(R.id.homeBtn);
