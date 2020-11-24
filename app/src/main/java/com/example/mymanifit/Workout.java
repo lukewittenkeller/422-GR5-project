@@ -31,7 +31,7 @@ public class Workout extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
-        timeLeft = 30000;
+        timeLeft = 10000;
         workoutText = (TextView) findViewById(R.id.textViewWorkout);
         timerText = (TextView) findViewById(R.id.countdown);
         homeBtn = (Button) findViewById(R.id.homeBtn);
@@ -44,7 +44,7 @@ public class Workout extends AppCompatActivity {
         });
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         animation = ObjectAnimator.ofInt(progressBar, "progress", 100, 0); // see this max value coming back here, we animate towards that value
-        animation.setDuration(30000); // in milliseconds
+        animation.setDuration(timeLeft); // in milliseconds
         animation.setInterpolator(new DecelerateInterpolator());
         animation.start();
         startTimer();
@@ -67,7 +67,7 @@ public class Workout extends AppCompatActivity {
                 {
                     workoutText.setText("Rest");
                     counter = 1;
-                    timeLeft = 10000;
+                    timeLeft = 5000;
                     animation.setDuration(timeLeft);
                     animation.start();
                     startTimer();
@@ -76,7 +76,7 @@ public class Workout extends AppCompatActivity {
                 {
                     workoutText.setText("Bench press");
                     counter = 2;
-                    timeLeft = 10000;
+                    timeLeft = 5000;
                     animation.setDuration(timeLeft);
                     animation.start();
                     startTimer();

@@ -55,7 +55,7 @@ public class Timer extends AppCompatActivity
             }
         });
 
-        timeLeft = 10000;
+        timeLeft = 25000;
         timerText = (TextView) findViewById(R.id.countdown);
         startTimer();
 
@@ -66,7 +66,8 @@ public class Timer extends AppCompatActivity
         timer = new CountDownTimer(timeLeft, 1000) {
             @Override
             // long l is amount of milliseconds until the timer is finished
-            public void onTick(long l) {
+            public void onTick(long l)
+            {
                 timeLeft = l;
                 updateTimer();
             }

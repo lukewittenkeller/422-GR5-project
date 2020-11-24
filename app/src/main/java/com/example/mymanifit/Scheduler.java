@@ -130,7 +130,8 @@ public class Scheduler extends AppCompatActivity {
 
                 TimePickerDialog timePickerDialog = new TimePickerDialog(Scheduler.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
-                    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                    public void onTimeSet(TimePicker timePicker, int i, int i1)
+                    {
                         thursText.setText(singleDigit(i) + ":" + singleDigit(i1));
                     }
                 }, thursHour, thursMin, true);
@@ -250,7 +251,7 @@ public class Scheduler extends AppCompatActivity {
                     satText.setEnabled(true);
                 }
                 else{
-
+                    satText.setText("Enter Time");
                     satText.setTextColor(Color.TRANSPARENT);
                     satText.setBackgroundColor(Color.TRANSPARENT);
                     satText.setEnabled(false);
@@ -269,6 +270,7 @@ public class Scheduler extends AppCompatActivity {
                     sunText.setEnabled(true);
                 }
                 else{
+                    sunText.setText("Enter Time");
                     sunText.setTextColor(Color.TRANSPARENT);
                     sunText.setBackgroundColor(Color.TRANSPARENT);
                     sunText.setEnabled(false);
@@ -287,7 +289,7 @@ public class Scheduler extends AppCompatActivity {
                     monText.setEnabled(true);
                 }
                 else{
-
+                    monText.setText("Enter Time");
                     monText.setBackgroundColor(Color.TRANSPARENT);
                     monText.setTextColor(Color.TRANSPARENT);
                     monText.setEnabled(false);
@@ -307,7 +309,7 @@ public class Scheduler extends AppCompatActivity {
                     tuesText.setEnabled(true);
                 }
                 else{
-
+                    tuesText.setText("Enter Time");
                     tuesText.setBackgroundColor(Color.TRANSPARENT);
                     tuesText.setTextColor(Color.TRANSPARENT);
                     tuesText.setEnabled(false);
@@ -325,7 +327,7 @@ public class Scheduler extends AppCompatActivity {
                     wedText.setEnabled(true);
                 }
                 else{
-
+                    wedText.setText("Enter Time");
                     wedText.setBackgroundColor(Color.TRANSPARENT);
                     wedText.setTextColor(Color.TRANSPARENT);
                     wedText.setEnabled(false);
@@ -344,7 +346,7 @@ public class Scheduler extends AppCompatActivity {
                     thursText.setEnabled(true);
                 }
                 else{
-
+                    thursText.setText("Enter Time");
                     thursText.setBackgroundColor(Color.TRANSPARENT);
                     thursText.setTextColor(Color.TRANSPARENT);
                     thursText.setEnabled(false);
@@ -363,7 +365,7 @@ public class Scheduler extends AppCompatActivity {
                     friText.setEnabled(true);
                 }
                 else{
-
+                    friText.setText("Enter Time");
                     friText.setBackgroundColor(Color.TRANSPARENT);
                     friText.setTextColor(Color.TRANSPARENT);
                     friText.setEnabled(false);
